@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Users in {{ user.hospital.name }}{% endblock %}
+{% block content %}
+    <h2 class="text-center">Users in KIMS Hospitals</h2><h4>(Kondapur | Secunderabad)</h4><br>
+    <a href="{% url 'health:signup' %}" class="btn btn-primary"><i class="fa fa-user-plus"></i>&nbsp;Add User</a>
+    <h4>Doctors</h4>
+<ul class="list-group">
+    {% for user in doctors %}
+        <a href="{% url 'health:medical_information' user.pk %}"  class="list-group-item">
+            {{ user.get_full_name }}<br />
+        </a>
+    {% endfor %}
+</ul>
+    <h4>Nurses</h4>
+<ul class="list-group">
+    {% for user in nurses %}
+        <a href="{% url 'health:medical_information' user.pk %}"  class="list-group-item">
+            {{ user.get_full_name }}
+        </a>
+    {% endfor %}
+</ul>
+    <h4>Patients</h4>
+<ul class="list-group">
+    {% for user in patients %}
+        <a href="{% url 'health:medical_information' user.pk %}"  class="list-group-item">
+            {{ user.get_full_name }}
+        </a>
+    {% endfor %}
+</ul>
+<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------</b>
+<b>Our Doctors</b>
+
+<div class="card" style="width:400px">
+	<div class="card-body">
+		<b><h4 class="card-title">1. Vasanth Kumar</h4></b>
+		<p class="card-text">Currently working as a Senior Consultant Vascular 
+							and Transplant Surgeon at Hyderabad, 
+							India Formerly a consultant surgeon in
+							National Health Service at Birmingham, United Kingdom.</p>
+							
+		<a href="http://www.kimshospitals.com/doctor-profile/dr-vasantha-kumar-reddy/" class="btn btn-primary">See Profile</a>
+
+		</div>
+		<b>--------------------------------------------------------------------</b>
+		<div class="card" style="width:400px">
+	<div class="card-body">
+		<b><h4 class="card-title">2. Manas Kumar</h4></b>
+		<p class="card-text">Dr. Manas Panigrahi has more than 140 publications in national and international journals, contributed chapters to textbooks in Neurosciences and received best paper awards in international and national meetings.</p>
+							
+		<a href="http://www.kimshospitals.com/doctor-profile/dr-manas-kumar-panigrahi/" class="btn btn-primary">See Profile</a>
+
+		</div>
+		<b>--------------------------------------------------------------------</b>
+		<div class="card" style="width:400px">
+	<div class="card-body">
+		<b><h4 class="card-title">3. Sandhya Manoranj</h4></b>
+		<p class="card-text">Currently working as a Senior Consultant Vascular 
+							and Transplant Surgeon at Hyderabad, 
+							India Formerly a consultant surgeon in
+							National Health Service at Birmingham, United Kingdom.</p>
+							
+		<a href="#" class="btn btn-primary">See Profile</a>
+
+		</div>
+		<b>--------------------------------------------------------------------</b>
+</div>
+</div>
+</div>
+<h1></h1>
+
+{% endblock %}
